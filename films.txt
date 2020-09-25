@@ -1,0 +1,5 @@
+CREATE TABLE Films(
+Titel            VARCHAR(200),
+Start_tijd       TIME,
+Leeftijd         INTEGER,
+Afbeelding       VARCHAR(10000));
