@@ -85,14 +85,14 @@ repo.update_file(contents.path, "updated bios.json from python3", str(json.dumps
 print("Pushed to Github")
 print("sending wathsapp message")
 from twilio.rest import Client
-account_sid = 'AC560f51cedc776774bd44d9c9688fbc43'
+account_sid = str(os.getenv("account_sid"))
 auth_token = str(os.getenv("twillio_authkey"))
 
 client = Client(account_sid, auth_token)
 message = client.messages.create(
-                              from_='whatsapp:+14155238886',
+                              from_='whatsapp:str(os.getenv("to_nummmer")',
                               body=f"Om {sorteds[0]['tijd']} begint de film {sorteds[0]['title']}.",
                               media_url=[sorteds[0]["img_url"]],
-                              to='whatsapp:+31622339914'
+                              to='whatsapp:str(os.getenv("my_nummmer"))'
                           )
 print("The wathsapp message send: ",f"Om {sorteds[0]['tijd']} begint de film {sorteds[0]['title']}.")
